@@ -1,31 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <!-- <MarkdownDisplay :markdown="'# Hello'"></MarkdownDisplay> -->
+    <textarea name="" v-model="testData" cols="30" rows="10"></textarea>
+    <MarkdownDisplay :markdown="setMsg"></MarkdownDisplay>
+    <!-- <highlight-display :hia="setMsg">--</highlight-display> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import MarkdownDisplay from './components/MarkdownDisplay.vue';
+// import HighlightDisplay from './components/HighlightDisplay.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      testData: '',
+    };
   },
-  created() {
-    console.log('hi');
+  components: {
+    MarkdownDisplay,
+    // HighlightDisplay,
+  },
+  computed: {
+    setMsg() {
+      return this.testData;
+    },
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
